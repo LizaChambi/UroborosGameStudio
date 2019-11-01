@@ -68,7 +68,6 @@ Cuando el usuario quiera agregar una escena al juego, por ejemplo, el sistema re
 
 ### Backlog
 * [Trello](https://trello.com/b/Xs1Q6q4e/uroborus-game-studio)
-* [VSM](https://realtimeboard.com/app/board/o9J_kxnZcYo=/)
 
 #### Autores:
 * Chambi Orellana, Liza Melody
