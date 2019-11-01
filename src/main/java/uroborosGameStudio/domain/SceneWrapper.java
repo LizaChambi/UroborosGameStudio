@@ -145,7 +145,13 @@ public class SceneWrapper extends GameObject implements Serializable
 		String dir = savedPath + name + line();
 		createFolder(dir);
 		saveFile(dir);
+		saveMedia();
 		saveActors(dir);
+	}
+
+	private void saveMedia() 
+	{
+		// TODO COPIAR LOS ARCHIVOS MULTIMEDIA CARGADOS POR EL USUARIO EN LA CARPETA DEL PROYECTO
 	}
 
 	private void saveActors(String savedPath)
@@ -235,5 +241,16 @@ public class SceneWrapper extends GameObject implements Serializable
 	public boolean hasBehaviorsOrCollitions() 
 	{
 		return this.actors.stream().anyMatch(actor -> actor.hasCollidersOrBehaviors());
+	}
+
+	public List<String> pathsMedia() 
+	{
+		List<String> pathsMedia = new ArrayList<String> ();
+		if (! pathAudio.isEmpty())
+		{
+			pathsMedia.add(pathAudio);
+		}
+		this.actors.forEach(actor -> pathsMedia.add(actor.getPathImage()));
+		return pathsMedia;
 	}
 }

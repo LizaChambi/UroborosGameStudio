@@ -12,6 +12,7 @@ import org.team.uroboros.uroboros.engine.ui.Canvas;
 import uroborosGameStudio.domain.ActorWrapper;
 import uroborosGameStudio.domain.GameObject;
 import uroborosGameStudio.domain.SceneWrapper;
+import uroborosGameStudio.domain.appModel.MainWindowModel;
 import uroborosGameStudio.ui.NewActorDialog;
 
 public class BtnAddActorActionListener extends AbstractEditionListener 
@@ -24,8 +25,9 @@ public class BtnAddActorActionListener extends AbstractEditionListener
 	JCheckBox animationEnable;
 	JSpinner ratio;
 	NewActorDialog dialog;
+	MainWindowModel model;
 	
-	public BtnAddActorActionListener(JTree treeScenes, Canvas canvas, JSpinner spinnerRatio, JCheckBox cbxFramesEnable, JTextField textFieldName, JTextField textFieldImagen, JTextField textFieldNumFrames, JTextField textFieldWidth, JTextField textFieldHeight, NewActorDialog dialog) 
+	public BtnAddActorActionListener(JTree treeScenes, Canvas canvas, JSpinner spinnerRatio, JCheckBox cbxFramesEnable, JTextField textFieldName, JTextField textFieldImagen, JTextField textFieldNumFrames, JTextField textFieldWidth, JTextField textFieldHeight, NewActorDialog dialog, MainWindowModel model) 
 	{
 		super(treeScenes, canvas);
 		this.name = textFieldName;
@@ -36,6 +38,7 @@ public class BtnAddActorActionListener extends AbstractEditionListener
 		this.height = textFieldHeight;
 		this.dialog = dialog;
 		this.ratio = spinnerRatio;
+		this.model = model;
 	}
 
 	@Override

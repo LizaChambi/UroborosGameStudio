@@ -272,7 +272,7 @@ public class NewActorDialog extends JDialog
 					}
 				}
 			});
-			okButton.addActionListener(new BtnAddActorActionListener(treeScenes, canvas, spinnerRatio, cbxFramesEnable, textFieldName, textFieldImagen, textFieldNumFrames, textFieldWidth, textFieldHeight, this));
+			okButton.addActionListener(new BtnAddActorActionListener(treeScenes, canvas, spinnerRatio, cbxFramesEnable, textFieldName, textFieldImagen, textFieldNumFrames, textFieldWidth, textFieldHeight, this, model));
 			okButton.setEnabled(false);
 			buttonPanel.add(okButton);
 			getRootPane().setDefaultButton(okButton);

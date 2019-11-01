@@ -20,6 +20,8 @@ public class UGSProject extends GameObject implements Serializable {
 	private List<SceneWrapper> scenes;
 	private String pathBehaviors;
 	private String pathAbilities;
+	private String pathImages;
+	private String pathSounds;
 	
 	public UGSProject(String projectName, String gameName) 
 	{
@@ -27,8 +29,10 @@ public class UGSProject extends GameObject implements Serializable {
 		this.ext = ".ugs";
 		this.projectName = projectName;
 		this.pathRoot = System.getProperty("user.home") + line() + this.projectName;
-		this.pathBehaviors = this.pathRoot + line() + "Global Behaviors";
-		this.pathAbilities = this.pathRoot + line() + "Global Abilities";
+		this.pathBehaviors = this.pathRoot + line() + "globalBehaviors";
+		this.pathAbilities = this.pathRoot + line() + "globalAbilities";
+		this.pathImages = this.pathRoot + line() + "images";
+		this.pathSounds = this.pathRoot + line() + "sounds";
 		createProjectDir();
 		this.scenes = new ArrayList<SceneWrapper>();
 		createMainScene();
@@ -42,6 +46,16 @@ public class UGSProject extends GameObject implements Serializable {
 	public String getPathAbilities()
 	{
 		return this.pathAbilities;
+	}
+	
+	public String getPathImages()
+	{
+		return this.pathImages;
+	}
+	
+	public String getPathSounds()
+	{
+		return this.pathSounds;
 	}
 
 	private void createMainScene() 
@@ -62,6 +76,8 @@ public class UGSProject extends GameObject implements Serializable {
 		createFolder(pathRoot);
 		createFolder(pathBehaviors);
 		createFolder(pathAbilities);
+		createFolder(pathImages);
+		createFolder(pathSounds);
 	}
 
 	public String getProjectName() {
@@ -97,8 +113,7 @@ public class UGSProject extends GameObject implements Serializable {
 		saveFile(getSavedPath());
 		saveScenes();
 	}
-	
-	// este metodo debe ser privado
+
 	public void deleteOldFiles(String path) {
 		File file = new File(path); 
 		File[] files = file.listFiles();
@@ -106,17 +121,22 @@ public class UGSProject extends GameObject implements Serializable {
 		{
 			for (int x=0;x<files.length;x++) 
 			{
-				deleteFiles(files[x]);
+				deleteFiles(files[x], pathsGameMedia());
 				deleteFolders(files[x]);
 			}
-			
 		} 
 		else { System.out.println("No existe el directorio"); }
 	}
 
-	private void deleteFiles(File archivo) 
+	private List<String> pathsGameMedia() {
+		List<String> pathsMedia = new ArrayList<String>();
+		this.scenes.forEach(scene -> pathsMedia.addAll(scene.pathsMedia()));
+		return pathsMedia;
+	}
+
+	private void deleteFiles(File archivo, List<String> pathsMedia) 
 	{
-		if(archivo.isDirectory())
+		if(archivo.isDirectory() && !isGameFiles(archivo.getPath(), pathsMedia))
 		{
 			deleteOldFiles(archivo.getPath());
 		}
@@ -126,6 +146,11 @@ public class UGSProject extends GameObject implements Serializable {
 		}
 	}
 	
+	private boolean isGameFiles(String path, List<String> pathsMedia) 
+	{
+		return pathsMedia.contains(path);
+	}
+
 	private void deleteFolders(File archivo) 
 	{
 		if(archivo.isDirectory() && ! isGameFolder(archivo.getPath()) )
@@ -136,7 +161,7 @@ public class UGSProject extends GameObject implements Serializable {
 	
 	private Boolean isGameFolder(String path)
 	{
-		return isEqualPath(path, this.pathAbilities) || isEqualPath(path, this.pathBehaviors);
+		return isEqualPath(path, this.pathAbilities) || isEqualPath(path, this.pathBehaviors) || isEqualPath(path, this.pathImages) || isEqualPath(path, this.pathSounds);
 	}
 
 	private boolean isEqualPath(String path1, String path2) 
@@ -157,7 +182,7 @@ public class UGSProject extends GameObject implements Serializable {
 				scene.save(getSavedPath());
 			} catch (IOException e) 
 			{
-				// TODO Auto-generated catch block
+					
 				e.printStackTrace();
 			}
 		});

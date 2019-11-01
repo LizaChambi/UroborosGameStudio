@@ -1,8 +1,15 @@
 package uroborosGameStudio.domain.appModel;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.script.ScriptException;
 
@@ -233,5 +240,27 @@ public class MainWindowModel
 	{
 		return this.project.getPathRoot();
 	}
+
+	/*
+	public String changeRootImage(String path) 
+	{
+		Logger LOGGER = Logger.getAnonymousLogger();
+		
+		Path originPath = Paths.get(path);
+		System.out.println("ORIGINPATH:" + originPath);
+		System.out.println("ORIGINPATH:" + this.project.getPathImages());
+		
+		try {
+			Files.copy(originPath, Paths.get(this.project.getPathImages()), StandardCopyOption.REPLACE_EXISTING);
+		} catch (FileNotFoundException ex) {
+            LOGGER.log(Level.SEVERE, ex.getMessage());
+        } catch (IOException ex) {
+            LOGGER.log(Level.SEVERE, ex.getMessage());
+        }
+		
+		System.out.println("RUTA DEVUELTA: " + this.project.getPathImages() + this.project.line() + originPath.getFileName());
+		return this.project.getPathImages() + this.project.line() + originPath.getFileName();
+	}
+	*/
 
 }

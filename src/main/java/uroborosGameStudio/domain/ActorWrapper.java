@@ -180,7 +180,7 @@ public class ActorWrapper extends GameObject  implements Serializable
 	}
 
 	private void setPathImageLocal(String path) 
-	{
+	{	
 		this.pathImage = path;
 		readImage(path);
 	}
