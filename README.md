@@ -14,7 +14,7 @@ Uroboros Game Studio es un editor de videojuegos que utiliza el framework de vid
 Esta herramienta está pensada para programadores que quieran crear sus propios videojuegos 2D. La motivación de este proyecto es introducir al programador al ambiente de videojuegos, y ayudarle a pensar en todos los componentes que intervienen en la creación de la misma (como los escenarios, actores, comportamientos, etc.). Y como interactúan entre ellos.
 
 ### Dependencias
-[Uroboros-Engine](https://github.com/TeamUroboros/Uroboros-Engine/tree/develop)
+[Uroboros-Engine](https://github.com/TeamUroboros/UroborosEngine)
 
 ### Principales casos de Uso
 
