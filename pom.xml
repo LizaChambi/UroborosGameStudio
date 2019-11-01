@@ -29,17 +29,17 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>com.github.TeamUroboros</groupId>
-			<artifactId>uroboros-engine</artifactId>
-			<version>develop-SNAPSHOT</version>
-		</dependency>
-
 <!-- 		<dependency> -->
-<!-- 			<groupId>org.team-uroboros</groupId> -->
+<!-- 			<groupId>com.github.TeamUroboros</groupId> -->
 <!-- 			<artifactId>uroboros-engine</artifactId> -->
-<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 			<version>develop-SNAPSHOT</version> -->
 <!-- 		</dependency> -->
+
+		<dependency>
+			<groupId>org.team-uroboros</groupId>
+			<artifactId>uroboros-engine</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.github.51lv3str1</groupId>

@@ -560,7 +560,7 @@ public class EditorWindow extends AbstractWindowFrame {
 		collisionPanel = new JPanel();
 		collisionPanel.setPreferredSize(new Dimension(973, 263));
 		collisionPanel.setLayout(null);
-		tabbedPanel.addTab("Colisiones", collisionPanel);
+		tabbedPanel.addTab("Cuerpos", collisionPanel);
 		tabbedPanel.setIconAt(1, new ImageIcon(EditorWindow.class.getResource("/com/sun/java/swing/plaf/windows/icons/HardDrive.gif")));
 	}
 	
